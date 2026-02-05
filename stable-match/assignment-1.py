@@ -5,7 +5,6 @@ import itertools
 
 ### Variables ### 
 # Path Variables
-in_file_label = ''
 in_file = Path(__file__).parent / 'Input.txt'
 out_path = Path(__file__).parent
 
@@ -18,7 +17,7 @@ unmatched_proposers = [] # Initlaized List of matched propsers
 ### MAIN ### 
 ## Read in file to populate dictionaries and lists
 line_count = 0
-with open('Input.txt', 'r') as file:
+with open(in_file, 'r') as file:
     next(file)
     lines = file.read()
     names = lines.strip().split('\n')
@@ -28,7 +27,6 @@ with open('Input.txt', 'r') as file:
         propser = itemgetter(0)
         name_dict.update({propser(x) : ""})
 
-# print(proposer_dict)
 line_count = (len(x) - 1)
 proposer_dict = dict(itertools.islice(name_dict.items(), 0, line_count)) # populate proposer dictionary (Men)
 proposee_dict = dict(itertools.islice(name_dict.items(), line_count,len(name_dict))) # Populate propsee dictionary (Ladies)
