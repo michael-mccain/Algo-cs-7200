@@ -1,6 +1,5 @@
 ### Imports ###
 from pathlib import Path
-from operator import itemgetter
 import itertools
 
 ### Functions ###
@@ -14,8 +13,7 @@ def read_file(in_file):
 
     for name in names: # Populate name dictionary
         x = name.split(' ')
-        propser = itemgetter(0)
-        final_dict.update({propser(x) : x[1:(len(x))]})
+        final_dict.update({x[0] : x[1:(len(x))]})
 
     return int(match_int), final_dict
 
