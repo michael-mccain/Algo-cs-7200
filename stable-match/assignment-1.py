@@ -25,7 +25,7 @@ with open(in_file, 'r') as file:
     for name in names: # Populate name dictionary
         x = name.split(' ')
         propser = itemgetter(0)
-        name_dict.update({propser(x) : ""})
+        name_dict.update({propser(x) : x[1:(len(x))]})
 
 line_count = (len(x) - 1)
 proposer_dict = dict(itertools.islice(name_dict.items(), 0, line_count)) # populate proposer dictionary (Men)
